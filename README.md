@@ -1,12 +1,16 @@
 何か動作確認やテスト用WebServerなら、PowerShellもアリなのでは？？ということで作ってみた。
 
-つけた機能
+【つけた機能】
 * ポートが開いているかのチェック
 * httpheaderにContent-Type、Access-Control-Allow-Origin、ETagをつける
 * publicだけでなく外部ドライブへのアクセス
 * 設定ファイル(settings.json)を読む
 * data.jsonを読んだり、書き換えたり
 * acme-challengeが来たらとりあえず返す
+
+【課題】
+* html上にたくさんのimgファイルをはりつけて、そのページが読み終わる前に別なページを開こうとすると落ちる。
+* キャンセル処理？が必要なのかな。
 
 【参考】
 * PowerShellでGETとPOST可能な簡易Webサーバを立てる
