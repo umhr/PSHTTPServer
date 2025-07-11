@@ -1,0 +1,9 @@
+{
+    "port": 8080,
+    "exroot": "E:",
+    "list": [
+        "boo",
+        "foo",
+        "woo"
+    ]
+}
