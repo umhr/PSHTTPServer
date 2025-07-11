@@ -8,6 +8,7 @@ class Routing{
         '.m3u8' = 'application/x-mpegURL'
         '.ts' = 'video/MP2T'
         '.csv' = 'text/csv'
+        '.htm' = 'text/html'
         '.html' = 'text/html'
         '.css' = 'text/css'
         '.ico' = 'image/vnd.microsoft.icon'
@@ -83,10 +84,10 @@ class Routing{
             [string]$dirPath = Join-Path -Path $PSScriptRoot -ChildPath 'public'
             $filepath = Join-Path -Path $dirPath -ChildPath ($Url.LocalPath.TrimStart('/'))
         }
-        #Write-host $filepath
+        # Write-host $filepath
         $response.StatusCode = 200
         $response.AddHeader('Access-Control-Allow-Origin', '*')
-        if($filepath.Substring($filepath.Length - 1, 1) -eq '\'){
+        if($filepath.Substring($filepath.Length - 1, 1) -eq '\' -or $filepath.Substring($filepath.Length - 1, 1) -eq '/'){
             $filepath += 'index.html'
         }
         if(Test-Path -Path $filepath){
@@ -153,8 +154,3 @@ class Routing{
 
     }
 }
-<#
-todo
-Etagの実装
-
-#>
